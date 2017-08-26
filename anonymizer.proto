@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package kazegusuri.anonymizer;
+
+import "google/protobuf/descriptor.proto";
+option go_package = "github.com/kazegusuri/go-proto-anonymizer;anonymizer";
+
+extend google.protobuf.FieldOptions {
+  AnonymizeRule field = 64552;
+}
+
+enum AnonymizeMethod {
+  UNKNOWN = 0;
+  NULL    = 1;
+}
+
+message AnonymizeRule {
+  AnonymizeMethod method = 1;
+}
